@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="/static/site.css">
+    </head>
+
+    <body>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
+        <a href="{{ url_for('about') }}" class="navbar-item">About</a>
+        <a href="{{ url_for('contact') }}" class="navbar-item">Contact</a>
+        <a href="{{ url_for('search') }}" class="navbar-item">search</a>
+        <a href="{{ url_for('homeGames') }}" class="navbar-item">Home Games</a>
+        <a href="{{ url_for('byeWeeks') }}" class="navbar-item">Bye Weeks</a>
+        <a href="{{ url_for('FBnews') }}" class="navbar-item">News</a>
+        <div class="dropdown">
+            <button class="dropbtn">Weekly Rankings</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('weeklyRankingsRB') }}">Running Backs</a>
+                <a href="{{ url_for('weeklyRankingsQB') }}">QuarterBacks</a>
+                <a href="{{ url_for('weeklyRankingsWR') }}">Wide Receivers</a>
+            </div>
+        </div>
+    </div>
+ 
+        <div class="body-content">
+            {% block content %}
+            {% endblock %}
+            <hr/>
+            <footer>
+                <p>&copy;Greg Avetisyan, 2019 </p>
+                <a href="https://www.fantasyfootballnerd.com/fantasy-football-api">Fantasy Football Nerd API</a>
+            </footer>
+        </div>
+    </body>
+</html>

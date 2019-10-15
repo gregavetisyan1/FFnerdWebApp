@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block title %}
+    Search Home Games 
+{% endblock %}
+{% block content %}
+<h1>NFL Schedule by Home Team</h1>
+<t1>Using the abbreviation, enter a team to see their home game Schedule </t1>
+<br></br>
+<input type="text" 
+        id="myInput" 
+        onkeyup="myFunction()" 
+        placeholder="Search Home Team (ABBR)" 
+        title="type in team abbr">
+
+<table id="myTable">
+    <tr class="header">
+        <th>Week</th>
+        <th>Away Team</th>
+        <th>Home Team</th>
+        <th>Game Time ET</th>
+        <th>tv Station</th>
+        <th>Date</th>
+    </tr>
+    <tbody>
+        {% for games in gameList %} 
+            <tr>
+                <td>{{games[0]}}</td>
+                <td>{{games[1]}}</td>
+                <td>{{games[2]}}</td>
+                <td>{{games[3]}}</td>
+                <td>{{games[4]}}</td>
+                <td>{{games[5]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+            } else {
+                    tr[i].style.display = "none";
+              }
+            }       
+          }
+        }
+</script>
+{% endblock %}

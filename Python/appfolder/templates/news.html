@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}
+    NFL News 
+{% endblock %}
+{% block content %}
+<h1>NFL News!</h1>
+        {% for news in newsList %}
+            <h2>{{news}}</h2>  
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}
+    Wide Reciever Rankings 
+{% endblock %}
+{% block content %}
+<h1>NFL Weekly Rankings for Wide Recievers</h1>
+
+<table id="myTable">
+    <tr class="header">
+        <th>Name</th>
+        <th>Team</th>
+        <th>Standard</th>
+        <th>PPR</th>
+        <th>Injury</th>
+    </tr>
+    <tbody>
+        {% for players in rankList %} 
+            <tr>
+                <td>{{players[0]}}</td>
+                <td>{{players[1]}}</td>
+                <td>{{players[2]}}</td>
+                <td>{{players[3]}}</td>
+                <td>{{players[4]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
